@@ -1,13 +1,21 @@
 import NewBudget from "./NewBudget"
-
-const Header =({budget, setBudget})=>{
+import ControlBudget from "./ControlBudget"
+const Header =({budget, setBudget,isValidBudget,setIsValidBudget})=>{
     return(
         <header>
             <h1>Budgeting App</h1>
-            <NewBudget
-                budget={budget}
-                setBudget={setBudget}
-            />
+            
+            {isValidBudget?
+                <ControlBudget
+                    budget={budget}
+                />:
+                <NewBudget
+                    budget={budget}
+                    setBudget={setBudget}
+                    isValidBudget={isValidBudget}
+                    setIsValidBudget={setIsValidBudget}
+                />
+            }
         </header>
 
     )
